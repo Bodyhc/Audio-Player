@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.4/plyr.css" />
+    <script src="https://cdn.plyr.io/3.6.4/plyr.js"></script>
+    <title>audio player - Amr Diab</title>
+    <link rel="stylesheet" href="assts/style.css" />
+    <link rel="stylesheet" href="assts/mediaquery.css" />
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html"
+            ><i class="fa-solid fa-house"></i><span>Home</span></a
+          >
+        </li>
+        <li>
+          <a href="Soungs.html"
+            ><i class="fa-solid fa-music"></i><span>Music</span></a
+          >
+        </li>
+        <li>
+          <a href="artist.html"
+            ><i class="fa-solid fa-icons"></i><span>Artist</span></a
+          >
+        </li>
+        <li>
+          <a href="#" id="muted"
+            ><i class="fa-solid fa-volume-high"></i><span>Mute</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+
+    <div id="container">
+      <div id="songsContainer"></div>
+    </div>
+
+    <div class="controls">
+      <div class="sound">
+        <div class="change">
+          <button class="control-button" id="backwardButton">
+            <i class="fa-solid fa-backward"></i><span>backward</span>
+          </button>
+          <button class="control-button" id="forwardButton">
+            <i class="fa-solid fa-forward"></i><span>forward</span>
+          </button>
+        </div>
+      </div>
+      <div class="media">
+        <audio src="soungs/started audio music.mp3" class="myaudio">....</audio>
+        <progress id="progressBar" value="1" max="100"></progress>
+      </div>
+      <div class="player">
+        <button class="control-button" id="back">
+          <i class="fa-solid fa-backward-step"></i><span>Back</span>
+        </button>
+        <button class="control-button" id="playButton">
+          <i class="fa-solid fa-play" id="i"></i><span>play</span>
+        </button>
+        <button class="control-button" id="next">
+          <i class="fa-solid fa-forward-step"></i><span>Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="sidebar">
+      <ul>
+        <li>
+          <a href="https://www.facebook.com/abdullah.slimaan"
+            ><i class="fa-brands fa-facebook"></i><span>FaceBook</span></a
+          >
+        </li>
+        <li>
+          <a href="https://www.instagram.com/vbdullvh_m_solimvn/"
+            ><i class="fa-brands fa-instagram"></i><span>Instagram</span></a
+          >
+        </li>
+        <li>
+          <a href="#"><i class="fa-solid fa-gear"></i><span>Setting</span></a>
+        </li>
+        <li>
+          <a href="" id="muted" onclick="copyPageURL()"
+            ><i class="fa-solid fa-copy"></i><span> Copy Link</span></a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <script src="assts/main.js"></script>
+    <script>
+      function displaySongsByArtist(artist) {
+        const filteredSongs = songs.filter((song) =>
+          song.title.includes(artist)
+        );
+        const songsContainer = document.getElementById("songsContainer");
+        songsContainer.innerHTML = "";
+        filteredSongs.forEach((song) => {
+          const songDiv = document.createElement("div");
+          songDiv.className = "mysong";
+          songDiv.textContent = `${song.title} - ${song.duration}`;
+          songDiv.addEventListener("click", function () {
+            const audioElements = document.getElementsByClassName("myaudio");
+            if (audioElements.length > 0) {
+              const audio = audioElements[0];
+              audio.src = `soungs/${song.src}.mp3`;
+              audio.play().catch((error) => {
+                console.error("Error playing audio:", error);
+              });
+            } else {
+              console.error("Audio element not found");
+            }
+          });
+          songsContainer.appendChild(songDiv);
+        });
+      }
+
+      // When the page loads, display Amr Diab's songs
+      document.addEventListener("DOMContentLoaded", () => {
+        displaySongsByArtist("Amr Diab");
+      });
+    </script>
+  </body>
+</html>

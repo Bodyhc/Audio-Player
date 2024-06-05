@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Lobster&display=swap');
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 252, 252);
+    border-radius: 50px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #ff0000;
+    border-radius: 5px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    font-family: Lobster;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #5f2828;
+    background-image: url(/img/background\ \(1\).jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    backface-visibility: hidden;
+}
+
+nav {
+    width: 80px;
+    height: 300px;
+    position: fixed;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffff;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin: 20px 0;
+    font-size: larger;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+}
+
+a:hover i {
+    color: #000000;
+}
+
+nav a span {
+    display: none;
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all .9s ease;
+}
+
+nav a:hover span {
+    display: inline-block;
+    position: absolute;
+    left: 110%;
+    opacity: 1;
+}
+
+/* ==============================container================================= */
+#container {
+    width: 800px;
+    height: 500px;
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    position: absolute;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 2px solid #ffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.indroduction {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.indroduction h1 {
+    margin: 20px;
+    letter-spacing: 2px;
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.indroduction p {
+    margin: 20px;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
+.mysong {
+    width: 700px;
+    height: 50px;
+    font-size: 20px;
+    margin: 20px 0px;
+    padding: 0 10px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mysong p {
+    margin: 10px;
+    padding-right: 20px;
+}
+
+.mysong a {
+    margin-left: 20px;
+    color: #000000;
+}
+
+.mysong a:hover {
+    color: #ffff;
+}
+
+/* ================================controls==================================== */
+.controls {
+    width: 800px;
+    height: 80px;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgba(255, 255, 255, 0.1);
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffff;
+}
+
+.sound {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.now-playing {
+    font-size: 12px;
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 4px;
+    background-color: #666;
+}
+
+.current-song {
+    border: 2px solid #fff;
+}
+
+.change {
+    display: flex;
+    width: 200px;
+}
+
+.media {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.myaudio {
+    width: 600px;
+    margin-left: 20px;
+}
+
+.myaudio::-webkit-media-controls-play-button {
+    display: block;
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+}
+
+.myaudio::-webkit-media-controls-current-time-display,
+.myaudio::-webkit-media-controls-time-remaining-display {
+    display: none;
+}
+
+.myaudio::-webkit-media-controls-timeline {
+    display: none;
+}
+
+.myaudio::-webkit-media-controls-playback-rate-options,
+.myaudio::-webkit-media-controls-volume-slider-container {
+    display: none;
+}
+
+#progressBar {
+    cursor: pointer;
+    width: 300px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    appearance: none;
+}
+
+#progressBar::-webkit-progress-bar {
+    background-color: transparent;
+    /* لإزالة الخلفية الافتراضية للبروغريس بار في متصفح Chrome */
+}
+
+#progressBar::-webkit-progress-value {
+    background-color: #6c6c6c;
+    /* لتغيير لون القيمة الممتلئة داخل البروغريس بار في متصفح Chrome */
+    border-radius: 50px;
+    /* يمكنك تعديل شكل القيمة الممتلئة حسب الرغبة */
+}
+
+.player {
+    position: absolute;
+    width: 300px;
+    right: 0;
+    height: 80px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.control {
+    display: flex
+}
+
+.control-button {
+    width: 50px;
+    height: 50px;
+    margin: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+    transition: all .9s ease;
+}
+
+.control-button span {
+    display: none;
+    margin-left: 10px;
+    white-space: nowrap;
+    font-size: small;
+    opacity: 0;
+    transition: all .9s ease;
+}
+
+.control-button:hover span {
+    display: inline-block;
+    position: absolute;
+    bottom: 110%;
+    opacity: 1;
+}
+
+.control-button i {
+    color: #fffaee;
+    font-size: 20px;
+}
+
+.control-button:hover i {
+    color: #000000;
+}
+
+/* ================================================== */
+.sidebar {
+    width: 80px;
+    height: 300px;
+    position: fixed;
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffff;
+}
+
+.sidebar a span {
+    display: none;
+    margin-left: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all .9s ease;
+}
+
+.sidebar a:hover span {
+    display: inline-block;
+    position: absolute;
+    right: 110%;
+    opacity: 1;
+}
+
+.row {
+    width: 800px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    justify-content: center;
+    position: absolute;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    border: 2px solid #ffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.artist {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 10px 20px;
+    height: 70px;
+    border-radius: 20px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.artist-img {
+    width: 200px;
+    height: 100%;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.artist-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    border: 3px solid #ffff;
+    background-size: cover;
+
+}
+
+.artist-link {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.artist-link a {
+    font-size: 30px;
+}
